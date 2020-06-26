@@ -9,11 +9,14 @@ const connectDB = require('./config/db');
 connectDB();
 
 let mainWindow;
+let isDev;
 
 const isMac = process.platform === 'darwin' ? true : false;
 
 if (process.env.NODE_ENV !== undefined && process.env.NODE_ENV === 'development') {
   isDev = true;
+} else {
+  isDev = false;
 }
 
 function createMainWindow() {
